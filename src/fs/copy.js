@@ -1,8 +1,9 @@
 import fs from "fs";
-import { throwError } from "./utils.js";
+import path from "path";
+import { pathToFilesFolder, throwError } from "./utils.js";
 
 const copy = async () => {
-  const pathFrom = "src/fs/files";
+  const pathFrom = path.join(pathToFilesFolder, "files");
   const pathTo = "src/fs/files_copy";
 
   if (fs.existsSync(pathTo) || !fs.existsSync(pathFrom)) {

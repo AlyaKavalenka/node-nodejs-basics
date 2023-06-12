@@ -1,14 +1,16 @@
 import fs from "fs";
-import { throwError } from "./utils.js";
+import path from "path";
+import { pathToFilesFolder, throwError } from "./utils.js";
 
 const create = async () => {
-  const fileName = "src/fs/files/fresh.txt";
+  const fileName = "fresh.txt";
+  const fileNamePath = path.join(pathToFilesFolder, fileName);
   const dataInNewFile = "I am fresh and young";
 
-  if (fs.existsSync(fileName)) {
+  if (fs.existsSync(fileNamePath)) {
     throwError();
   } else {
-    fs.writeFileSync(fileName, dataInNewFile);
+    fs.writeFileSync(fileNamePath, dataInNewFile);
   }
 };
 
