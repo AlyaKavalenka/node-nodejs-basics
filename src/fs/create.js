@@ -1,12 +1,12 @@
 import fs from "fs";
+import { throwError } from "./utils.js";
 
 const create = async () => {
   const fileName = "src/fs/files/fresh.txt";
   const dataInNewFile = "I am fresh and young";
-  const errorMessage = "FS operation failed";
 
   if (fs.existsSync(fileName)) {
-    throw new Error(errorMessage);
+    throwError();
   } else {
     fs.writeFileSync(fileName, dataInNewFile);
   }
