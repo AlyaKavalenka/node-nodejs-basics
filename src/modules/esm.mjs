@@ -20,7 +20,7 @@ console.log(`Version ${version()}`);
 console.log(`Path segment separator is "${path.sep}"`);
 
 console.log(`Path to current file is ${fileURLToPath(import.meta.url)}`);
-console.log(`Path to current directory is ${pathToFileURL(import.meta.url)}`);
+console.log(`Path to current directory is ${new URL('.', import.meta.url).pathname}`);
 
 const myServer = createServerHttp((_, res) => {
   res.end('Request accepted');
