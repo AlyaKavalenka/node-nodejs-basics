@@ -3,7 +3,7 @@ import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
 import "./files/c.js";
 import { readFileSync } from 'fs';
-import { fileURLToPath, pathToFileURL } from 'url';
+import { fileURLToPath } from 'url';
 
 const random = Math.random();
 
