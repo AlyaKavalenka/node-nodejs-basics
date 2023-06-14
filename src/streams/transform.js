@@ -1,5 +1,5 @@
 const transform = async () => {
-    // Write your code here 
+  process.stdin.on("data", (data) => process.stdout._write(data))
 };
 
 await transform();
