@@ -1,5 +1,13 @@
+import { Transform } from "stream";
+
 const transform = async () => {
-  process.stdin.on("data", (data) => process.stdout._write(data))
+  const reversed = new Transform({
+    transform(chunk, _, callback) {
+      const reverse = `${chunk.toString().split("").reverse().join("")}\n------\n`;
+      callback(null, reverse);
+    }
+  })
+  process.stdin.pipe(reversed).pipe(process.stdout);
 };
 
 await transform();
