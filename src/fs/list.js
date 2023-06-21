@@ -1,5 +1,12 @@
+import fs from "fs";
+import { pathToFilesFolder, throwError } from "./utils.js";
+
 const list = async () => {
-    // Write your code here 
+  if (fs.existsSync(pathToFilesFolder)) {
+    console.log(fs.readdirSync(pathToFilesFolder));
+  } else {
+    throwError();
+  }
 };
 
 await list();

@@ -1,5 +1,11 @@
+import fs from "fs";
+import path from "path";
+import { pathToFilesFolder, throwError } from "./utils.js";
+
 const remove = async () => {
-    // Write your code here 
+  const pathToFileForDelete = path.join(pathToFilesFolder, "fileToRemove.txt");
+
+  fs.existsSync(pathToFileForDelete) ? fs.unlinkSync(pathToFileForDelete) : throwError();
 };
 
 await remove();
